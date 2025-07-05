@@ -1,0 +1,17 @@
+langchain
+langchain_community
+chromadb
+gradio
+beautifulsoup4
+requests
+pypdf
+tiktoken
+ollama
+langchain_chroma
+langchain-ollama
+langchain-groq
+dotenv
+langchain_huggingface
+langchain_openai
+sentence-transformers
+unstructured
