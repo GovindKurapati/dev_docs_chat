@@ -36,7 +36,7 @@ A powerful RAG (Retrieval-Augmented Generation) system that allows you to upload
 1. **Clone the repository**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/GovindKurapati/dev_docs_chat.git
    cd dev_docs_chat
    ```
 
@@ -75,6 +75,28 @@ python app.py
 ```
 
 The application will be available at `http://127.0.0.1:7860`
+
+## 📸 Screenshots
+
+### Document Upload
+Upload and process PDF, TXT, and Markdown files with drag-and-drop interface.
+
+![Document Upload](images/doc_upload_tab.png)
+
+### URL Ingestion
+Fetch and process content from web URLs with progress indicators.
+
+![URL Ingestion](images/url_ingest_tab.png)
+
+### Data Management
+Manage your uploaded files and ingested URLs with easy deletion options.
+
+![Data Management](images/manage_data_tab.png)
+
+### Q&A Interface
+Ask questions about your documents and get AI-powered answers with markdown formatting.
+
+![Q&A Interface](images/qna_tab.png)
 
 ## 📁 Project Structure
 

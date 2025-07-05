@@ -5,6 +5,7 @@ from ingestion import load_and_ingest_file, load_and_ingest_url, clear_database,
 from qa_pipeline import answer_question
 
 INGESTED_URLS_FILE = "./ingested_urls.txt"
+UPLOAD_DIR = "./uploads"
 
 
 def handle_file_upload(file):
@@ -65,9 +66,6 @@ def handle_url_ingestion_with_progress(url):
 
 def handle_question(question):
     return answer_question(question)
-
-
-UPLOAD_DIR = "./uploads"
 
 
 def list_uploaded_files():
@@ -420,7 +418,7 @@ with gr.Blocks() as demo:
             with gr.Column(scale=2):
                 question_input = gr.Textbox(label="Your Question", placeholder="Ask a question about your documents...")
                 ask_btn = gr.Button("🤖 Get Answer", variant="primary")
-                answer_output = gr.Textbox(label="Answer", lines=10, placeholder="Answer will appear here...")
+                answer_output = gr.Markdown(label="Answer", value="Answer will appear here...")
             
         
         def handle_question_with_sources(question):

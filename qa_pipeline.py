@@ -6,6 +6,7 @@ from langchain_core.callbacks import StdOutCallbackHandler
 from langchain.memory import ConversationBufferMemory
 from dotenv import load_dotenv
 from langchain_huggingface import HuggingFaceEmbeddings
+from pydantic import SecretStr
 
 CHROMA_DB_DIR = "./chroma_db"
 
@@ -43,9 +44,9 @@ def get_qa_chain():
 
 
     llm = ChatOpenAI(
-        model_name="llama-3.1-8b-instant",
-        openai_api_key=OPENAI_API_KEY,
-        openai_api_base=OPENAI_API_BASE,
+        model="llama-3.1-8b-instant",
+        api_key=SecretStr(OPENAI_API_KEY) if OPENAI_API_KEY else None,
+        base_url=OPENAI_API_BASE,
         temperature=0.2,
     )
 
@@ -65,5 +66,15 @@ def answer_question(question):
     result = qa_chain.invoke({"question": question})
 
     answer = result["answer"]
+    
+    # Format the answer for better markdown display
+    formatted_answer = f"""
+## Answer
 
-    return answer
+{answer}
+
+---
+*Generated using AI-powered document analysis*
+"""
+    
+    return formatted_answer
